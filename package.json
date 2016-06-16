@@ -10,5 +10,6 @@
   "keywords": [
     "koochapps"
   ],
-  "author": "Gaston Kaltner"
+  "author": "Gaston Kaltner",
+  "license":"GNU"
 }
