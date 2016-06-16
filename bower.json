@@ -1,0 +1,16 @@
+{
+  "name": "koochapps",
+  "description": "koochapps web page",
+  "main": "gulpfile.js",
+  "authors": [
+    "Gaston Kaltner"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "koochapps"
+  ],
+  "homepage": "https://github.com/koochapps/home",
+  "dependencies": {
+    "Materialize": "materialize#^0.97.6"
+  }
+}
