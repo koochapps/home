@@ -1,0 +1,14 @@
+{
+  "name": "koochapps",
+  "version": "1.0.0",
+  "description": "koochapps web page",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-sass": "^2.3.1"
+  },
+  "keywords": [
+    "koochapps"
+  ],
+  "author": "Gaston Kaltner"
+}
