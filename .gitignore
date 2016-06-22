@@ -34,4 +34,4 @@ node_modules
 /.idea/
 /koochapps.iml
 /bower_components/
-/src/scss/bower_sass/
+/src/**/bower_dependencies/
