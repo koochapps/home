@@ -3,18 +3,56 @@
  */
 
 var gulp = require('gulp'),
-    plugins = require('gulp-load-plugins')(/*options parameter*/);
+    $ = require('gulp-load-plugins')(/*options parameter*/),
+    browserSync = require('browser-sync'),
+    bowerFiles = require('main-bower-files');
 
 var paths = {
-    bower:{
-        materialize:'./bower_components/Materialize',
-        jquery:'./bower_components/jquery'
-    },
-    destSass:'./src/scss',
-    destJs:'./src/js',
-    destFonts:'./src/fonts'
+    base:'./src'
 };
 
+
+gulp.task('serve', ['inject'], function() {
+
+    browserSync.init({
+        server: paths.base
+    });
+
+    gulp.watch(paths.base + "/scss/**/*.scss", ['sass']);
+    gulp.watch(paths.base + "/*.html").on('change', browserSync.reload);
+});
+
+gulp.task('sass', function() {
+    return gulp.src(paths.base + "/scss/**/*.scss")
+        .pipe($.sass())
+        .pipe($.rename('koochapps.css'))
+        .pipe(gulp.dest(paths.base + "/css/"));
+});
+
+
+gulp.task('inject',['sass'], function () {
+    var target = gulp.src(paths.base + '/index.html');
+
+    var sources = gulp.src([paths.base + '/js/**/*.js', paths.base + '/css/**/*.css'], {read: false});
+    var bFiles = gulp.src(bowerFiles()).pipe(gulp.dest(paths.base + '/lib'));
+
+    return target.pipe($.inject(sources,{relative:true}))
+        .pipe($.inject(bFiles, {name: 'bower',relative:true}))
+        .pipe(gulp.dest(paths.base))
+        .pipe(browserSync.stream());
+});
+
+
+/**
+ * task for move fonts to project
+ */
+gulp.task('materialize-fonts',function(){
+    gulp.src('./bower_components/Materialize/fonts/**')
+        .pipe(gulp.dest(paths.base + '/fonts'));
+});
+
+
+/*
 gulp.task('materialize',['materialize-sass','materialize-js','materialize-fonts']);
 
 
@@ -33,7 +71,7 @@ gulp.task('materialize-fonts',function(){
         .pipe(gulp.dest(paths.destFonts));
 });
 
-
+*/
 
 
 gulp.task('default', function() {
