@@ -1,0 +1,10 @@
+@import "../base/base";
+
+.servicios {
+  margin-top: 60px;
+  &__text{
+    &--title{
+      color: darken($primary-color, 5%);
+    }
+  }
+}

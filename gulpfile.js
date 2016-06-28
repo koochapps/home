@@ -18,13 +18,14 @@ gulp.task('serve', ['inject'], function() {
         server: paths.base
     });
 
-    gulp.watch(paths.base + "/scss/**/*.scss", ['sass']);
+    gulp.watch(paths.base + "/scss/**/*.scss", ['sass',browserSync.reload]);
     gulp.watch(paths.base + "/*.html").on('change', browserSync.reload);
 });
 
 gulp.task('sass', function() {
     return gulp.src(paths.base + "/scss/**/*.scss")
         .pipe($.sass())
+        //.pipe($.debug({title:'sass'}))
         .pipe($.rename('koochapps.css'))
         .pipe(gulp.dest(paths.base + "/css/"));
 });

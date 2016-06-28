@@ -1,0 +1,19 @@
+@import "../base/base";
+
+.parallax-container{
+  &__logo{
+    position: absolute;
+    left: 43%; //TODO
+    top: 50px;
+    border-radius: 50%;
+
+    img {
+      height: 180px;
+    }
+  }
+
+  &__text{
+    margin-top:250px;
+    color: $white;
+  }
+}
