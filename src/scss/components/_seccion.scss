@@ -1,10 +1,14 @@
 @import "../base/base";
 
-.servicios {
+.seccion {
   margin-top: 60px;
   &__text{
     &--title{
       color: darken($primary-color, 5%);
     }
+  }
+
+  &__img{
+    width: 300px;
   }
 }

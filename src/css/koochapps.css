@@ -18625,7 +18625,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .picker--time .picker__box {
     margin-bottom: 5em; } }
 
-.servicios {
+.seccion {
   margin-top: 60px; }
-  .servicios__text--title {
+  .seccion__text--title {
     color: #18679f; }
+  .seccion__img {
+    width: 300px; }
