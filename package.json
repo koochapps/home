@@ -31,5 +31,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/koochapps/home.git"
+  },
+  "scripts":{
+    "bower":"bower install",
+    "serve":"gulp serve",
+    "postinstall":"npm run bower",
+    "start": "npm run serve"
   }
 }
