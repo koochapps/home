@@ -5,22 +5,34 @@
 $(document).ready(function(){
     $('.parallax').parallax();
 
-    var tagImg = document.getElementById('tecImg'),
-        imgs = ['angular-icon.svg','javascript.svg'],
-        index = 0;
+    var images = [],
+        index = 0, prevIndex = null;
 
-    function changeImages(){
-        tagImg.src ='img/' + imgs[index];
-        tagImg.style.animation = 'animation 1000ms linear both';
+     function changeImages(){
+        images[prevIndex].classList.add('hide');
+        images[prevIndex].classList.remove('animation-target');
+        images[index].classList.remove('hide');
+        images[index].classList.add('animation-target');
 
-        if(++index === 2){
+        if(++index === images.length){
             index = 0;
         }
+
+        if(++prevIndex === images.length){
+            prevIndex = 0;
+        }
+    }
+
+    function getAllImages(){
+        images = document.querySelectorAll('.tecnologias img');
+        prevIndex = images.length -1;
     }
 
     setInterval(function(){
         changeImages();
     }, 3000);
+
+    getAllImages();
 });
 
 
