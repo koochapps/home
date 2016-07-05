@@ -18625,16 +18625,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em; } }
 
 .parallax-container {
-  height: 800px; }
-  .parallax-container__logo {
-    position: absolute;
-    left: 43%;
-    top: 50px;
-    border-radius: 50%; }
-    .parallax-container__logo img {
-      height: 180px; }
+  height: 700px; }
+  .parallax-container__logo img {
+    display: block;
+    margin: 100px auto 0; }
   .parallax-container__text {
-    margin-top: 250px;
     color: #FFF; }
 
 .animation-target {
