@@ -1,6 +1,8 @@
 @import "../base/base";
 
 .parallax-container{
+  height: 800px;
+
   &__logo{
     position: absolute;
     left: 43%; //TODO

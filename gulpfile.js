@@ -19,7 +19,7 @@ gulp.task('serve', ['inject'], function() {
     });
 
     gulp.watch(paths.base + "/scss/**/*.scss", ['sass',browserSync.reload]);
-    gulp.watch(paths.base + "/*.html").on('change', browserSync.reload);
+    gulp.watch([paths.base + "/*.html",paths.base + "/js/**/*.js"]).on('change', browserSync.reload);
 });
 
 gulp.task('sass', function() {
