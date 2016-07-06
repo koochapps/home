@@ -12,11 +12,14 @@
   "homepage": "https://github.com/koochapps/home",
   "dependencies": {
     "Materialize": "materialize#^0.97.6",
-    "jquery": "2.1.1"
+    "jquery": "2.1.1",
+    "svg-morpheus": "^0.3.2"
   },
   "overrides": {
     "Materialize": {
-      "main": ["dist/**/materialize.js"]
+      "main": [
+        "dist/**/materialize.js"
+      ]
     }
   }
 }

@@ -8,7 +8,8 @@ var gulp = require('gulp'),
     bowerFiles = require('main-bower-files');
 
 var paths = {
-    base:'./src'
+    base:'./src',
+    temp:'./temp'
 };
 
 
@@ -43,6 +44,13 @@ gulp.task('inject',['sass'], function () {
         .pipe(browserSync.stream());
 });
 
+
+gulp.task('minify',function(){
+    gulp.src(bowerFiles())
+        .pipe(gulp.dest(paths.temp + '/js'))
+        .pipe(gulp.src(paths.base + '/js/**/*.js'))
+        .pipe(gulp.dest(paths.temp + '/js'));
+});
 
 /**
  * task for move fonts to project
