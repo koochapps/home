@@ -5,7 +5,8 @@
 var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(/*options parameter*/),
     browserSync = require('browser-sync'),
-    bowerFiles = require('main-bower-files');
+    bowerFiles = require('main-bower-files'),
+    merge = require('merge-stream');
 
 var paths = {
     base:'./src',
@@ -46,10 +47,12 @@ gulp.task('inject',['sass'], function () {
 
 
 gulp.task('minify',function(){
-    gulp.src(bowerFiles())
-        .pipe(gulp.dest(paths.temp + '/js'))
-        .pipe(gulp.src(paths.base + '/js/**/*.js'))
-        .pipe(gulp.dest(paths.temp + '/js'));
+
+    var bFiles = gulp.src(bowerFiles()).pipe(gulp.dest(paths.temp + '/js'));
+    var jsFiles = gulp.src([paths.base + '/js/**/*.js']).pipe(gulp.dest(paths.temp + '/js'));
+
+    return merge(bFiles,jsFiles).pipe($.concat('main.js')).pipe(gulp.dest('./dist'));
+
 });
 
 /**

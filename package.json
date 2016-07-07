@@ -21,7 +21,8 @@
     "gulp-sync": "^0.1.4",
     "gulp-util": "^3.0.7",
     "lazypipe": "^1.0.1",
-    "main-bower-files": "^2.13.1"
+    "main-bower-files": "^2.13.1",
+    "merge-stream": "^1.0.0"
   },
   "keywords": [
     "koochapps"
@@ -32,10 +33,10 @@
     "type": "git",
     "url": "https://github.com/koochapps/home.git"
   },
-  "scripts":{
-    "bower":"bower install",
-    "serve":"gulp serve",
-    "postinstall":"npm run bower",
+  "scripts": {
+    "bower": "bower install",
+    "serve": "gulp serve",
+    "postinstall": "npm run bower",
     "start": "npm run serve"
   }
 }
