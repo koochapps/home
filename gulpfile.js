@@ -26,7 +26,8 @@ gulp.task('serve', ['build'], function() {
     });
 
     gulp.watch(paths.src + "/scss/**/*.scss", ['build:sass',browserSync.reload]);
-    gulp.watch([paths.src + "/*.html",paths.src + "/js/**/*.js"]).on('change', browserSync.reload);
+    gulp.watch(paths.src + "/*.html", [gSync.sync(['build:html','build:inject']),browserSync.reload]);
+    gulp.watch(paths.src + "/js/**/*.js",['build:js', browserSync.reload]);
 });
 
 
