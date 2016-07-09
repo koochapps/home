@@ -34,5 +34,5 @@ node_modules
 /.idea/
 /koochapps.iml
 /bower_components/
-/src/lib/
-/temp/
+/build/
+/dist/

@@ -5,86 +5,128 @@
 var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(/*options parameter*/),
     browserSync = require('browser-sync'),
-    bowerFiles = require('main-bower-files'),
-    merge = require('merge-stream');
+    del = require('del'),
+    bowerFiles = require('main-bower-files');
+
+var gSync = $.sync(gulp);
 
 var paths = {
-    base:'./src',
-    temp:'./temp'
+    src:'./src',
+    build:'./build',
+    dist:'./dist'
 };
 
-
-gulp.task('serve', ['inject'], function() {
+/**
+ * Server
+ */
+gulp.task('serve', ['build'], function() {
 
     browserSync.init({
-        server: paths.base
+        server: paths.build
     });
 
-    gulp.watch(paths.base + "/scss/**/*.scss", ['sass',browserSync.reload]);
-    gulp.watch([paths.base + "/*.html",paths.base + "/js/**/*.js"]).on('change', browserSync.reload);
+    gulp.watch(paths.src + "/scss/**/*.scss", ['build:sass',browserSync.reload]);
+    gulp.watch([paths.src + "/*.html",paths.src + "/js/**/*.js"]).on('change', browserSync.reload);
 });
 
-gulp.task('sass', function() {
-    return gulp.src(paths.base + "/scss/**/*.scss")
+
+/**
+ * Build
+*/
+gulp.task('build', gSync.sync(['clean:build','build:inject','build:fonts']));
+
+gulp.task('build:sass', function() {
+    return gulp.src(paths.src + "/scss/**/*.scss")
         .pipe($.sass())
         //.pipe($.debug({title:'sass'}))
         .pipe($.rename('koochapps.css'))
-        .pipe(gulp.dest(paths.base + "/css/"));
+        .pipe(gulp.dest(paths.build + "/css/"));
+});
+
+gulp.task('build:js',function(){
+    return gulp.src(paths.src + "/js/**/*.js")
+        .pipe(gulp.dest(paths.build + "/js"));
 });
 
 
-gulp.task('inject',['sass'], function () {
-    var target = gulp.src(paths.base + '/index.html');
+gulp.task('build:images',function(){
+   return gulp.src(paths.src + "/img/**/*")
+       .pipe(gulp.dest(paths.build + "/img"));
+});
 
-    var sources = gulp.src([paths.base + '/js/**/*.js', paths.base + '/css/**/*.css'], {read: false});
-    var bFiles = gulp.src(bowerFiles()).pipe(gulp.dest(paths.base + '/lib'));
+gulp.task('build:fonts',function(){
+    return gulp.src('./bower_components/Materialize/fonts/**')
+        .pipe(gulp.dest(paths.build + '/fonts'));
+});
+
+gulp.task('build:html',function(){
+    return gulp.src(paths.src + '/index.html')
+        .pipe(gulp.dest(paths.build))
+        .pipe(gulp.src(paths.build + '/index.html'));
+});
+
+gulp.task('build:inject',['build:html','build:sass','build:images','build:js'], function () {
+    var target = gulp.src(paths.build + '/index.html');
+
+    var sources = gulp.src([paths.build + '/js/**/*.js', paths.build + '/css/**/*.css'], {read: false});
+    var bFiles = gulp.src(bowerFiles()).pipe(gulp.dest(paths.build + '/lib'));
 
     return target.pipe($.inject(sources,{relative:true}))
         .pipe($.inject(bFiles, {name: 'bower',relative:true}))
-        .pipe(gulp.dest(paths.base))
-        .pipe(browserSync.stream());
-});
-
-
-gulp.task('minify',function(){
-
-    var bFiles = gulp.src(bowerFiles()).pipe(gulp.dest(paths.temp + '/js'));
-    var jsFiles = gulp.src([paths.base + '/js/**/*.js']).pipe(gulp.dest(paths.temp + '/js'));
-
-    return merge(bFiles,jsFiles).pipe($.concat('main.js')).pipe(gulp.dest('./dist'));
-
+        .pipe(gulp.dest(paths.build));
 });
 
 /**
- * task for move fonts to project
+ * Minify
+ * */
+
+gulp.task('minify',gSync.sync(['clean:dist',['minify:js','minify:css','minify:img','minify:fonts'],'minify:html','clean:build']));
+
+gulp.task('minify:img',function(){
+    return gulp.src(paths.src + '/img/**')
+        .pipe(gulp.dest(paths.dist + '/img'));
+});
+
+gulp.task('minify:js',function(){
+    return gulp.src(bowerFiles())
+        .pipe($.addSrc.append(paths.src + '/js/**/*.js'))
+        .pipe($.concat('koochapps.js'))
+        .pipe($.minify())
+        .pipe(gulp.dest(paths.dist + '/js'));
+});
+
+gulp.task('minify:css',['build:sass'],function(){
+    return gulp.src(paths.build + '/css/**/*.css')
+        .pipe($.cleanCss())
+        .pipe($.rename('koochapps-min.css'))
+        .pipe(gulp.dest(paths.dist + '/css'));
+});
+
+gulp.task('minify:fonts',function(){
+    return gulp.src('./bower_components/Materialize/fonts/**')
+        .pipe(gulp.dest(paths.dist + '/fonts'));
+});
+
+
+gulp.task('minify:html',['minify:js','minify:css'],function(){
+    var ignore = paths.dist.replace('.','');
+    return gulp.src(paths.src + '/index.html')
+        .pipe($.inject(gulp.src(paths.dist + '/**/*-min.*', {read: false}),{ignorePath:ignore}))
+        .pipe(gulp.dest(paths.dist));
+});
+
+/**
+ * Clean
  */
-gulp.task('materialize-fonts',function(){
-    gulp.src('./bower_components/Materialize/fonts/**')
-        .pipe(gulp.dest(paths.base + '/fonts'));
+gulp.task('clean',['clean:dist','clean:build']);
+
+gulp.task('clean:dist',function(){
+    del(paths.dist);
 });
 
-
-/*
-gulp.task('materialize',['materialize-sass','materialize-js','materialize-fonts']);
-
-
-gulp.task('materialize-sass',function(){
-    gulp.src(paths.bower.materialize + '/sass/**')
-    .pipe(gulp.dest(paths.destSass + '/bower_sass'));
+gulp.task('clean:build',function(){
+    del(paths.build);
 });
-
-gulp.task('materialize-js',function(){
-    gulp.src(paths.bower.materialize + '/dist/js/materialize.js')
-        .pipe(gulp.dest(paths.destJs));
-});
-
-gulp.task('materialize-fonts',function(){
-    gulp.src(paths.bower.materialize + '/dist/fonts/**')
-        .pipe(gulp.dest(paths.destFonts));
-});
-
-*/
-
 
 gulp.task('default', function() {
     // place code for your default task here
