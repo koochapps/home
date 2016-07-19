@@ -13,7 +13,7 @@ var gSync = $.sync(gulp);
 var paths = {
     src:'./src',
     build:'./build',
-    dist:'./dist'
+    dist:'./'
 };
 
 /**
@@ -104,7 +104,7 @@ gulp.task('minify:css',['build:sass'],function(){
 });
 
 gulp.task('minify:fonts',function(){
-    return gulp.src('./bower_components/Materialize/fonts/**')
+    return gulp.src('./bower_components/Materialize/fonts/**')//TODO add minify
         .pipe(gulp.dest(paths.dist + '/fonts'));
 });
 
@@ -113,6 +113,7 @@ gulp.task('minify:html',['minify:js','minify:css'],function(){
     var ignore = paths.dist.replace('.','');
     return gulp.src(paths.src + '/index.html')
         .pipe($.inject(gulp.src(paths.dist + '/**/*-min.*', {read: false}),{ignorePath:ignore}))
+        .pipe($.htmlmin({collapseWhitespace: true,removeComments:true}))
         .pipe(gulp.dest(paths.dist));
 });
 
