@@ -100,3 +100,24 @@ var obj = {
     client_id:"756788320951-p8jjvfand90vc2f6ampptq1mpqle1fur.apps.googleusercontent.com",
     scopes:'https://www.googleapis.com/auth/gmail.send'
 };
+
+
+/**
+ * Scroll smooth
+ */
+
+var offset = -150;
+$(function() {
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top + offset
+                }, 500);
+                return false;
+            }
+        }
+    });
+});
