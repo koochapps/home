@@ -66,7 +66,7 @@ gulp.task('build:html',function(){
         .pipe(gulp.src(paths.build + '/index.html'));
 });
 
-gulp.task('build:inject',['build:html','build:sass','build:images','build:js'], function () {
+gulp.task('build:inject',gSync.sync([['build:html','build:sass','build:images'],'build:js']), function () {
     var target = gulp.src(paths.build + '/index.html');
 
     var sources = gulp.src([paths.build + '/js/**/*.js', paths.build + '/css/**/*.css'], {read: false});
