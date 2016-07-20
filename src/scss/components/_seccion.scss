@@ -1,0 +1,54 @@
+.seccion {
+  .parallax-container{
+    height: 600px;
+
+    .parallax img{
+      opacity: 0.2;
+    }
+  }
+
+  &__text{
+    &--title{
+      color: darken($primary-color, 5%);
+    }
+    &--desc{
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 2;
+    }
+  }
+
+  &__img{
+    width: 300px;
+  }
+
+  .row {
+    margin-top: 150px;
+  }
+}
+
+.tecnologias {
+  .seccion__img{
+    height: 250px;
+    width: 250px;
+  }
+}
+
+.contacto{
+
+  .input-field{
+    color: $white;
+  }
+
+  .btn{
+    color: $primary-color;
+    font-weight: bold;
+    i {
+      color: inherit;
+    }
+  }
+
+  .material-icons{
+    color:$white-darken;
+  }
+}
