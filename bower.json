@@ -13,13 +13,17 @@
   "dependencies": {
     "Materialize": "materialize#^0.97.6",
     "jquery": "2.1.1",
-    "svg-morpheus": "^0.3.2"
+    "svg-morpheus": "^0.3.2",
+    "font-awesome": "^4.6.3"
   },
   "overrides": {
     "Materialize": {
       "main": [
         "dist/**/materialize.js"
       ]
+    },
+    "font-awesome": {
+      "main": []
     }
   }
 }

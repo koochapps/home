@@ -57,7 +57,7 @@ gulp.task('build:images',function(){
 });
 
 gulp.task('build:fonts',function(){
-    return gulp.src('./bower_components/Materialize/fonts/**')
+    return gulp.src('./bower_components/Materialize/fonts/**',['./bower_components/font-awesome/fonts/**'])
         .pipe(gulp.dest(paths.build + '/fonts'));
 });
 

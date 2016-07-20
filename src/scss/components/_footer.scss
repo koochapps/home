@@ -1,4 +1,10 @@
 
-footer.page-footer{
-  margin-top: 0;
+footer{
+  &.page-footer{
+    margin-top: 0;
+  }
+
+  .copyright__text{
+    font-size: 12px;
+  }
 }
