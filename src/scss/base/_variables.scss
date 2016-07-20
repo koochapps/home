@@ -1,0 +1,11 @@
+$white: #FFF;
+$black: #000;
+$white-darken: darken($white,20%);
+
+$primary-color: #1b75b5;
+$secondary-color: $white;
+$success-color: #12BF70;
+$error-color: #FF5618;
+
+
+$input-border-color: $white-darken;
