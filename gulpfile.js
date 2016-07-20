@@ -13,7 +13,8 @@ var gSync = $.sync(gulp);
 var paths = {
     src:'./src',
     build:'./build',
-    dist:'./'
+    dist:'./dist',
+    publish:'./'
 };
 
 /**
@@ -115,6 +116,14 @@ gulp.task('minify:html',['minify:js','minify:css'],function(){
         .pipe($.inject(gulp.src(paths.dist + '/**/*-min.*', {read: false}),{ignorePath:ignore}))
         .pipe($.htmlmin({collapseWhitespace: true,removeComments:true}))
         .pipe(gulp.dest(paths.dist));
+});
+
+/**
+ * Publish
+ */
+gulp.task('publish',['minify'],function(){
+    return gulp.src(paths.dist + '/**/*')
+        .pipe(gulp.dest(paths.publish));
 });
 
 /**
