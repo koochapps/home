@@ -57,7 +57,7 @@ gulp.task('build:images',function(){
 });
 
 gulp.task('build:fonts',function(){
-    return gulp.src('./bower_components/Materialize/fonts/**',['./bower_components/font-awesome/fonts/**'])
+    return gulp.src(['./bower_components/Materialize/fonts/**','./bower_components/font-awesome/fonts/**'])
         .pipe(gulp.dest(paths.build + '/fonts'));
 });
 
@@ -105,7 +105,7 @@ gulp.task('minify:css',['build:sass'],function(){
 });
 
 gulp.task('minify:fonts',function(){
-    return gulp.src('./bower_components/Materialize/fonts/**')//TODO add minify
+    return gulp.src(['./bower_components/Materialize/fonts/**','./bower_components/font-awesome/fonts/**'])//TODO add minify
         .pipe(gulp.dest(paths.dist + '/fonts'));
 });
 
