@@ -3,7 +3,20 @@
 @import "components/seccion";
 @import "components/parallax";
 @import "components/contacto";
+@import "components/header";
 
+
+#koochapps_logo{
+  #bgCircle{
+    fill:$white;
+  }
+  #mainCircle{
+    fill:$primary-color;
+  }
+  #letters{
+    fill:$white;
+  }
+}
 
 .animation-target {
   animation: animation 1000ms linear both;
