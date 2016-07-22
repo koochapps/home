@@ -3,6 +3,12 @@
 
   &__logo{
 
+    color: $white;
+
+    strong {
+      font-weight: $roboto-strong;
+    }
+
     svg {
       display: block;
       margin: 100px auto 0;
