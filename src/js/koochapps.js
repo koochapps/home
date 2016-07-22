@@ -38,7 +38,7 @@ $(document).ready(function(){
 
     var myIcon =new SVGMorpheus('#icons');
 
-    var array= ['icon1','icon2'];
+    var array= ['logo1','logo2'];
     index = 0;
 
     setInterval(function(){
