@@ -27,6 +27,7 @@ gulp.task('serve', ['build'], function() {
     });
 
     gulp.watch(paths.src + "/scss/**/*.scss", ['build:sass',browserSync.reload]);
+    gulp.watch(paths.src + "/img/**/*", ['build:images',browserSync.reload]);
     gulp.watch(paths.src + "/*.html", [gSync.sync(['build:html','build:inject']),browserSync.reload]);
     gulp.watch(paths.src + "/js/**/*.js",['build:js', browserSync.reload]);
 });
@@ -57,7 +58,7 @@ gulp.task('build:images',function(){
 });
 
 gulp.task('build:fonts',function(){
-    return gulp.src('./bower_components/Materialize/fonts/**')
+    return gulp.src(['./bower_components/Materialize/fonts/**','./bower_components/font-awesome/fonts/**'])
         .pipe(gulp.dest(paths.build + '/fonts'));
 });
 
@@ -105,7 +106,7 @@ gulp.task('minify:css',['build:sass'],function(){
 });
 
 gulp.task('minify:fonts',function(){
-    return gulp.src('./bower_components/Materialize/fonts/**')//TODO add minify
+    return gulp.src(['./bower_components/Materialize/fonts/**','./bower_components/font-awesome/fonts/**'])//TODO add minify
         .pipe(gulp.dest(paths.dist + '/fonts'));
 });
 

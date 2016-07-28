@@ -1,7 +1,7 @@
 .contacto{
   &__desc{
-    font-size: 18px;
-    font-weight: 200;
+    font-size: $font-size-desc;
+    font-weight: $roboto-thin;
     line-height: 2;
   }
 }

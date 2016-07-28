@@ -3,13 +3,21 @@
 
   &__logo{
 
-    img {
+    color: $white;
+
+    strong {
+      font-weight: $roboto-strong;
+    }
+
+    svg {
       display: block;
       margin: 100px auto 0;
+      width: 300px;
     }
   }
 
   &__text{
     color: $white;
   }
+
 }
