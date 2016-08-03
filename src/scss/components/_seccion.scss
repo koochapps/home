@@ -5,25 +5,42 @@
     .parallax img{
       opacity: 0.2;
     }
+
   }
 
   &__text{
     &--title{
       color: darken($primary-color, 5%);
+
+      @include phone{
+        font-size: 40px;
+      }
     }
     &--desc{
       font-size: $font-size-desc;
       font-weight: $roboto-light;
       line-height: 2;
+
+      @include phone{
+        font-size: $font-size-desc-phone;
+      }
     }
   }
 
   &__img{
     width: 300px;
+
+    @include phone{
+      width: 150px;
+    }
   }
 
   .row {
     margin-top: 130px;
+
+    @include phone{
+      margin-top: 80px;
+    }
   }
 }
 
@@ -31,10 +48,25 @@
   .seccion__img{
     height: 250px;
     width: 250px;
+
+    @include phone{
+      height: 150px;
+      width: 150px;
+    }
   }
 }
 
 .contacto{
+
+  &__desc{
+    font-size: $font-size-desc;
+    font-weight: $roboto-thin;
+    line-height: 2;
+
+    @include phone{
+      font-size: $font-size-desc-phone;
+    }
+  }
 
   .input-field{
     color: $white;
@@ -54,6 +86,10 @@
 }
 
 .conozcanos{
+  .parallax-container{
+    height: auto;
+  }
+
   &__integrantes{
 
     line-height: 0.5;
@@ -61,6 +97,11 @@
 
     .row{
       margin-top: 20px;
+      @include phone {
+        .col {
+          margin-top: 20px;
+        }
+      }
     }
 
     img {

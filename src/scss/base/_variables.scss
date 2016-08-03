@@ -1,3 +1,7 @@
+$phone-screen: 600px;
+$tablet-screen: 992px;
+$desktop-screen: 992px;
+
 $white: #FFF;
 $black: #000;
 $white-darken: darken($white,20%);
@@ -14,6 +18,7 @@ $input-border-color: $white-darken;
 
 
 $font-size-desc: 18px;
+$font-size-desc-phone: 14px;
 
 $roboto-thin:200;
 $roboto-light:300;
