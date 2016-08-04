@@ -99,6 +99,9 @@
     @include phone{
       font-size: $font-size-desc-phone;
     }
+    @include tablet{
+      font-size: $font-size-desc-tablet;
+    }
   }
 
   .input-field{
