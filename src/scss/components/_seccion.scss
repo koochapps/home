@@ -2,6 +2,10 @@
   .parallax-container{
     height: 600px;
 
+    @include phone{
+      height: 650px;
+    }
+
     .parallax img{
       opacity: 0.2;
     }
@@ -13,7 +17,7 @@
       color: darken($primary-color, 5%);
 
       @include phone{
-        font-size: 40px;
+        font-size: $font-phone-h2;
       }
     }
     &--desc{
@@ -24,14 +28,38 @@
       @include phone{
         font-size: $font-size-desc-phone;
       }
+      @include tablet{
+        font-size: $font-size-desc-tablet;
+      }
     }
   }
 
   &__img{
     width: 300px;
+    margin-top: 30px;
+
+    @include phone{
+      display: block;
+      margin: auto;
+    }
+
+    &--right{
+      float:right;
+      @include phone{
+        float:none;
+      }
+    }
+
+    &--left{
+      float:left;
+      @include phone{
+        float:none;
+      }
+    }
 
     @include phone{
       width: 150px;
+      margin-top: 0px;
     }
   }
 
@@ -52,6 +80,11 @@
     @include phone{
       height: 150px;
       width: 150px;
+    }
+
+    @include tablet{
+      height: 210px;
+      width: 210px;
     }
   }
 }
@@ -86,8 +119,10 @@
 }
 
 .conozcanos{
-  .parallax-container{
-    height: auto;
+  @include phone {
+    .parallax-container {
+      height: auto;
+    }
   }
 
   &__integrantes{

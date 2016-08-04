@@ -1,7 +1,6 @@
-$phone-screen: 600px;
-$tablet-screen: 992px;
-$desktop-screen: 992px;
-
+/*
+  Colors
+*/
 $white: #FFF;
 $black: #000;
 $white-darken: darken($white,20%);
@@ -13,15 +12,30 @@ $secondary-color: $white;
 $success-color: #12BF70;
 $error-color: #FF5618;
 
-
+/*
+  Inputs
+*/
 $input-border-color: $white-darken;
 
-
-$font-size-desc: 18px;
+/*
+  Fonts
+*/
+$font-size-desc: 17px;
 $font-size-desc-phone: 14px;
+$font-size-desc-tablet: 15px;
+
+$font-phone-h1:45px;
+$font-phone-h2:40px;
+$font-phone-h3:30px;
 
 $roboto-thin:200;
 $roboto-light:300;
 $roboto-normal:400;
 $roboto-bold:500;
 $roboto-strong:600;
+
+/*
+  Side Navigation
+*/
+$sidenav-font-color: $white;
+$sidenav-bg-color: $primary-color;
