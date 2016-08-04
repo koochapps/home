@@ -87,6 +87,7 @@ gulp.task('minify',gSync.sync(['clean:dist',['minify:js','minify:css','minify:im
 
 gulp.task('minify:img',function(){
     return gulp.src(paths.src + '/img/**')
+        .pipe($.imagemin())
         .pipe(gulp.dest(paths.dist + '/img'));
 });
 

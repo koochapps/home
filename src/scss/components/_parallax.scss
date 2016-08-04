@@ -1,6 +1,10 @@
 .parallax-container{
   height: 700px;
 
+  @include phone{
+    height: 650px;
+  }
+
   &__logo{
 
     color: $white;
@@ -13,11 +17,27 @@
       display: block;
       margin: 60px auto 0;
       max-width: 300px;
+
+      @include phone{
+        max-width: 200px;
+      }
+    }
+
+    h1{
+      @include phone{
+        font-size: $font-phone-h1;
+      }
     }
   }
 
   &__text{
     color: $white;
+
+    h3 {
+      @include phone{
+        font-size: $font-phone-h3;
+      }
+    }
   }
 
 }

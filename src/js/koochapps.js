@@ -4,8 +4,9 @@
 
 $(document).ready(function(){
     $('.parallax').parallax();
+    $(".button-collapse").sideNav();
 
-    var images = [],
+   /* var images = [],
         index = 0, prevIndex = null;
 
      function changeImages(){
@@ -27,7 +28,7 @@ $(document).ready(function(){
         images = document.querySelectorAll('.tecnologias img');
         prevIndex = images.length -1;
     }
-
+*/
 
 
     /*setInterval(function(){
@@ -47,24 +48,32 @@ $(document).ready(function(){
             index = 0;
         }
     }, 3000);
-});
 
-/**
- * Scroll smooth
- */
+    /**
+     * Scroll smooth
+     */
+    var offset = -150;
+    if(window.innerWidth < 601){
+        offset = -55;
+    }
 
-var offset = -150;
-$(function() {
-    $('a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: target.offset().top + offset
-                }, 500);
-                return false;
+    $(function() {
+        $('a[href*="#"]:not([href="#"])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                    $('.button-collapse').sideNav('hide');
+                    $('html, body').animate({
+                        scrollTop: target.offset().top + offset
+                    }, 500);
+                    return false;
+                }
             }
-        }
+        });
     });
+
 });
+
+
+

@@ -2,28 +2,73 @@
   .parallax-container{
     height: 600px;
 
+    @include phone{
+      height: 650px;
+    }
+
     .parallax img{
       opacity: 0.2;
     }
+
   }
 
   &__text{
     &--title{
       color: darken($primary-color, 5%);
+
+      @include phone{
+        font-size: $font-phone-h2;
+      }
     }
     &--desc{
       font-size: $font-size-desc;
       font-weight: $roboto-light;
       line-height: 2;
+
+      @include phone{
+        font-size: $font-size-desc-phone;
+      }
+      @include tablet{
+        font-size: $font-size-desc-tablet;
+      }
     }
   }
 
   &__img{
     width: 300px;
+    margin-top: 30px;
+
+    @include phone{
+      display: block;
+      margin: auto;
+    }
+
+    &--right{
+      float:right;
+      @include phone{
+        float:none;
+      }
+    }
+
+    &--left{
+      float:left;
+      @include phone{
+        float:none;
+      }
+    }
+
+    @include phone{
+      width: 150px;
+      margin-top: 0px;
+    }
   }
 
   .row {
     margin-top: 130px;
+
+    @include phone{
+      margin-top: 80px;
+    }
   }
 }
 
@@ -31,10 +76,30 @@
   .seccion__img{
     height: 250px;
     width: 250px;
+
+    @include phone{
+      height: 150px;
+      width: 150px;
+    }
+
+    @include tablet{
+      height: 210px;
+      width: 210px;
+    }
   }
 }
 
 .contacto{
+
+  &__desc{
+    font-size: $font-size-desc;
+    font-weight: $roboto-thin;
+    line-height: 2;
+
+    @include phone{
+      font-size: $font-size-desc-phone;
+    }
+  }
 
   .input-field{
     color: $white;
@@ -54,6 +119,12 @@
 }
 
 .conozcanos{
+  @include phone {
+    .parallax-container {
+      height: auto;
+    }
+  }
+
   &__integrantes{
 
     line-height: 0.5;
@@ -61,6 +132,11 @@
 
     .row{
       margin-top: 20px;
+      @include phone {
+        .col {
+          margin-top: 20px;
+        }
+      }
     }
 
     img {

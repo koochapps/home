@@ -15,13 +15,21 @@
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo">
+                <a href="#" class="brand-logo">
                     <svg viewBox="0 0 286 286" xmlns="http://www.w3.org/2000/svg" class="circle responsive-img">
                         <use xlink:href="#koochapps_logo"></use>
                     </svg>
-                    <strong>KOOCHAPPS</strong>
+                    <strong class="hide-on-small-only">KOOCHAPPS</strong>
                 </a>
+                <a href="#" data-activates="mobile-screen" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#mision">Nuestra misión</a></li>
+                    <li><a href="#metodologia">Metodología</a></li>
+                    <li><a href="#tecnologias">Tecnologías</a></li>
+                    <li><a href="#conozcanos">¿Quienes somos?</a></li>
+                    <li><a href="#contacto">Contactenos</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-screen">
                     <li><a href="#mision">Nuestra misión</a></li>
                     <li><a href="#metodologia">Metodología</a></li>
                     <li><a href="#tecnologias">Tecnologías</a></li>
@@ -41,10 +49,10 @@
                     <div class="col s12 parallax-container__logo">
                         <svg viewBox="25 13 286 286" xmlns="http://www.w3.org/2000/svg" id="koochapps_logo">
                             <g id="bgCircle">
-                                <ellipse cx="167.503" cy="156.57" rx="140.797" ry="141.258"></ellipse>
+                                <ellipse cx="167.503" cy="156.57" rx="141.797" ry="141.797"></ellipse>
                             </g>
                             <g id="mainCircle">
-                                <ellipse cx="167.503" cy="156.57" rx="138.489" ry="138.72" ></ellipse>
+                                <ellipse cx="167.503" cy="156.57" rx="138.489" ry="138.489" ></ellipse>
                             </g>
                             <g id="letters">
                                 <path d="M 61.744 84.535 L 85.043 84.535 L 139.935 226.476 L 116.408 226.476 L 61.744 84.535 Z"></path>
@@ -56,7 +64,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col offset-s3 s6 center-align parallax-container__text">
+                    <div class="col s12 offset-l2 l8 center-align parallax-container__text">
                         <h3>Software and Design Company</h3>
                         <p>Creamos Aplicaciones y Webs que busca mejorar la comunicación y la interacción entre las personas,
                             brindándoles un servicio que logre que sus ideas alcancen su máximo potencial.
@@ -72,10 +80,10 @@
                     <img src="img/ng-colab-space_night.gif">
                 </div>
                 <div class="row">
-                    <div class="col s4 offset-s1">
-                        <img src="img/rocket.svg" alt="" class="responsive-img seccion__img right">
+                    <div class="col s12 m5 offset-l1 l4">
+                        <img src="img/rocket.svg" alt="" class="responsive-img seccion__img seccion__img--right">
                     </div>
-                    <div class="col offset-s1 s4 seccion__text">
+                    <div class="col s12 m6 offset-l1 l5 seccion__text">
                         <h2 class="seccion__text--title"><strong>Nuestra misión</strong></h2>
                         <p class="seccion__text--desc">Sabemos lo importante que es su negocio, por eso nuestra misión es potenciarlo al máximo con las mejores fortalezas que poseemos.
                             Le proporcionaremos las tecnologías más innovadoras y creativas acorde las necesidades de su empresa,
@@ -88,19 +96,16 @@
 
         <section class="seccion metodologia" id="metodologia">
             <div class="parallax-container">
-                <div class="parallax">
-
-                </div>
                 <div class="row">
-                    <div class="col offset-s2 s4 seccion__text">
+                    <div class="col s12 m5 l5 right">
+                        <img src="img/agile.svg" alt="" class="responsive-img seccion__img seccion__img--left">
+                    </div>
+                    <div class="col s12 offset-m1 m6 offset-l1 l5 seccion__text left">
                         <h2 class="seccion__text--title"><strong>Metodología</strong></h2>
                         <p class="seccion__text--desc">Nos enfocamos en metodologías ágiles, que nos facilita una alta flexibilidad y adaptación respecto a sus necesidades.
                             Una mejora continua e iterativa para obtener una alta productividad y calidad en el desarrollo del producto.
                             Y Con un equipo mxultidisciplinario para atacar temas de diferente naturaleza.
                         </p>
-                    </div>
-                    <div class="col offset-s1 s4">
-                        <img src="img/agile.svg" alt="" class="responsive-img seccion__img left">
                     </div>
                 </div>
             </div>
@@ -112,12 +117,12 @@
                     <img src="img/flatness2.png">
                 </div>
                 <div class="row">
-                    <div class="col s4 offset-s1">
-                        <object type="image/svg+xml" data="img/logo-set.svg" id="icons" class="responsive-img seccion__img right"></object>
+                    <div class="col s12 m5 offset-l1 l4">
+                        <object type="image/svg+xml" data="img/logo-set.svg" id="icons" class="responsive-img seccion__img seccion__img--right"></object>
                         <!--<img src="img/angular-icon.svg" class="responsive-img seccion__img right">
                         <img src="img/javascript.svg" class="responsive-img seccion__img right hide">-->
                     </div>
-                    <div class="col offset-s1 s4 seccion__text">
+                    <div class="col s12 m6 offset-l1 l5 seccion__text">
                         <h2 class="seccion__text--title"><strong>Tecnologías</strong></h2>
                         <p class="seccion__text--desc">
                             Nos apasiona la tecnología, nos mueve la innovación y nos provocan los desafíos.
@@ -142,21 +147,21 @@
                     <div class="row">
                         <div class="col s12 l8 offset-l2 conozcanos__integrantes center">
                             <div class="row">
-                                <div class="col m4">
+                                <div class="col s12 m4">
                                     <a href="https://ar.linkedin.com/in/slanducci" target="_blank">
                                         <img src="img/sergio-landucci.png" class="responsive-img circle">
                                         <h4>Sergio Landucci</h4>
                                         <p>Asesor Multimedia & Apps</p>
                                     </a>
                                 </div>
-                                <div class="col m4">
+                                <div class="col s12 m4">
                                     <a href="https://ar.linkedin.com/in/gkaltner" target="_blank">
                                         <img src="img/gaston-kaltner.jpg" class="responsive-img circle">
                                         <h4>Gaston Kaltner</h4>
                                         <p>Ingeniero tecnologias webs & mobiles</p>
                                     </a>
                                 </div>
-                                <div class="col m4">
+                                <div class="col s12 m4">
                                     <a href="https://ar.linkedin.com/in/yiown" target="_blank">
                                         <img src="img/fernando-farias.jpg" class="responsive-img circle">
                                         <h4>Fernando Farias</h4>
