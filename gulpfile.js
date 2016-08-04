@@ -85,8 +85,13 @@ gulp.task('build:inject',gSync.sync([['build:html','build:sass','build:images'],
 
 gulp.task('minify',gSync.sync(['clean:dist',['minify:js','minify:css','minify:img','minify:fonts'],'minify:html','clean:build']));
 
-gulp.task('minify:img',function(){
-    return gulp.src(paths.src + '/img/**')
+gulp.task('move:img',function(){
+    return gulp.src(paths.src + '/img/logo-set.svg')
+        .pipe(gulp.dest(paths.dist + '/img'));
+});
+
+gulp.task('minify:img',['move:img'],function(){
+    return gulp.src([paths.src + '/img/**','!' + paths.src + '/img/logo-set.svg'])
         .pipe($.imagemin())
         .pipe(gulp.dest(paths.dist + '/img'));
 });
