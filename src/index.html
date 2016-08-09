@@ -10,6 +10,7 @@
     <!-- inject:css -->
     <!-- endinject -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
     <header class="navbar-fixed">
@@ -216,6 +217,11 @@
                             <i class="material-icons prefix">edit_mode</i>
                             <textarea id="mensaje" type="text" class="materialize-textarea"></textarea>
                             <label for="mensaje">Su mensaje *</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <div class="g-recaptcha" data-sitekey="6LeOJycTAAAAAAbkLyPOh5CKuGak5gxaRpKtCf8x"></div>
                         </div>
                     </div>
                     <button class="btn waves-effect waves-light" type="button" name="enviar">Enviar
