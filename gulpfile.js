@@ -128,13 +128,13 @@ gulp.task('minify:html',['minify:js','minify:css'],function(){
 /**
  * Publish
  */
-gulp.task('publish',['minify','robots'],function(){
+gulp.task('publish',['minify','SEO'],function(){
     return gulp.src(paths.dist + '/**/*')
         .pipe(gulp.dest(paths.publish));
 });
 
-gulp.task('robots', function(){
-    return gulp.src(paths.src + '/robots.txt')
+gulp.task('SEO', function(){
+    return gulp.src([paths.src + '/robots.txt',paths.src + '/sitemap.xml'])
         .pipe(gulp.dest(paths.publish));
 });
 
