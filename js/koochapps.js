@@ -16117,37 +16117,6 @@ $(document).ready(function(){
     $('.parallax').parallax();
     $(".button-collapse").sideNav();
 
-   /* var images = [],
-        index = 0, prevIndex = null;
-
-     function changeImages(){
-        images[prevIndex].classList.add('hide');
-        images[prevIndex].classList.remove('animation-target');
-        images[index].classList.remove('hide');
-        images[index].classList.add('animation-target');
-
-        if(++index === images.length){
-            index = 0;
-        }
-
-        if(++prevIndex === images.length){
-            prevIndex = 0;
-        }
-    }
-
-    function getAllImages(){
-        images = document.querySelectorAll('.tecnologias img');
-        prevIndex = images.length -1;
-    }
-*/
-
-
-    /*setInterval(function(){
-        changeImages();
-    }, 3000);*/
-
-    //getAllImages();
-
     var myIcon =new SVGMorpheus('#icons');
 
     var array= ['logo1','logo2','logo3'];
@@ -16163,9 +16132,9 @@ $(document).ready(function(){
     /**
      * Scroll smooth
      */
-    var offset = -150;
+    var offset = -100;
     if(window.innerWidth < 601){
-        offset = -55;
+        offset = -15;
     }
 
     $(function() {
@@ -16183,8 +16152,6 @@ $(document).ready(function(){
             }
         });
     });
-
 });
-
 
 
