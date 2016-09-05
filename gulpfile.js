@@ -128,8 +128,13 @@ gulp.task('minify:html',['minify:js','minify:css'],function(){
 /**
  * Publish
  */
-gulp.task('publish',['minify'],function(){
+gulp.task('publish',['minify','robots'],function(){
     return gulp.src(paths.dist + '/**/*')
+        .pipe(gulp.dest(paths.publish));
+});
+
+gulp.task('robots', function(){
+    return gulp.src(paths.src + '/robots.txt')
         .pipe(gulp.dest(paths.publish));
 });
 
