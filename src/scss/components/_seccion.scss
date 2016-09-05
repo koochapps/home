@@ -18,6 +18,7 @@
 
       @include phone{
         font-size: $font-phone-h2;
+        text-align: center;
       }
     }
     &--desc{
@@ -27,6 +28,7 @@
 
       @include phone{
         font-size: $font-size-desc-phone;
+        text-align: center;
       }
       @include tablet{
         font-size: $font-size-desc-tablet;
@@ -126,6 +128,10 @@
     .parallax-container {
       height: auto;
     }
+  }
+
+  .row {
+    margin-top: 40px;
   }
 
   &__integrantes{

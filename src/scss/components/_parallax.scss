@@ -23,9 +23,26 @@
       }
     }
 
-    h1{
+
+    .name {
+      margin-bottom: 0;
       @include phone{
         font-size: $font-phone-h1;
+      }
+    }
+    .sub_name {
+      margin-top: -3px;
+      font-size: $font-size-sub_name;
+      letter-spacing: $space-letter-sub_name;
+      text-indent: $text-indent-sub_name;
+
+      @include tablet{
+        letter-spacing: $space-letter-sub_name-tablet;
+      }
+
+      @include phone{
+        letter-spacing: $space-letter-sub_name-phone;
+        text-indent: $text-indent-sub_name-phone;
       }
     }
   }
@@ -33,9 +50,10 @@
   &__text{
     color: $white;
 
-    h3 {
+    .lema {
+      font-size: $font-size-lema;
       @include phone{
-        font-size: $font-phone-h3;
+        font-size: $font-size-lema-phone;
       }
     }
   }
