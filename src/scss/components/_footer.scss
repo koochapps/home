@@ -1,10 +1,12 @@
 
 footer{
-  &.page-footer{
+  .page-footer{
     margin-top: 0;
   }
 
   .copyright{
+    height: 100px;
+
     &__text{
       font-size: 12px;
     }

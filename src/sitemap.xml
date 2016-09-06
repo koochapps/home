@@ -3,11 +3,8 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>http://koochapps.com/</loc>
-        <!--<image:image>
-            <image:loc>http://example.com/image.jpg</image:loc>
-        </image:image>
         <image:image>
-            <image:loc>http://example.com/photo.jpg</image:loc>
-        </image:image>-->
+            <image:loc>http://koochapps.com/img/koochapps.svg</image:loc>
+        </image:image>
     </url>
 </urlset>
