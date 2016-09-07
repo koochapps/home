@@ -13,6 +13,11 @@ footer{
 
     &__social{
       margin-top: 10px;
+
+      a {
+        color:rgba(255,255,255,.8);
+        text-decoration: none;
+      }
     }
   }
 }
