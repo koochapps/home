@@ -1,16 +1,23 @@
 
 footer{
-  &.page-footer{
+  .page-footer{
     margin-top: 0;
   }
 
   .copyright{
+    height: 100px;
+
     &__text{
       font-size: 12px;
     }
 
     &__social{
       margin-top: 10px;
+
+      a {
+        color:rgba(255,255,255,.8);
+        text-decoration: none;
+      }
     }
   }
 }
