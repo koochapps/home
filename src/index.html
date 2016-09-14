@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="description" content="Koochapps se enfoca en crear y mejorar aplicaciones webs y mobiles desde el diseño de la idea hasta la implementación de la solución"/>
     <meta name="author" content="Gaston Kaltner"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="HandheldFriendly" content="true"/>
     <meta name="MobileOptimized" content="320"/>
     <link rel="icon" href="img/favicon.png" type="image/png">
@@ -15,7 +15,6 @@
     <!-- endinject -->
     <!-- inject:css -->
     <!-- endinject -->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
     <header class="navbar-fixed">
@@ -144,9 +143,9 @@
                                 <div class="col s12 m4">
                                     <a href="https://ar.linkedin.com/in/gkaltner" target="_blank">
                                         <img src="img/gaston-kaltner.jpg" class="responsive-img circle"
-                                             alt="Gaston Kaltner Ingeniero en tecnologías webs & mobiles">
-                                        <h4>Gaston Kaltner</h4>
-                                        <p>Ingeniero tecnologías webs & mobiles</p>
+                                             alt="Gastón Kaltner Analista de Sistemas">
+                                        <h4>Gastón Kaltner</h4>
+                                        <p>Analista de Sistemas</p>
                                     </a>
                                 </div>
                                 <div class="col s12 m4">
@@ -174,15 +173,15 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="nombre" type="text">
-                            <label for="nombre">Nombre *</label>
+                            <input id="nombre" type="text" required class="validate">
+                            <label for="nombre" data-error="Debe ingresar un nombre">Nombre *</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">email</i>
-                            <input id="email" type="email">
-                            <label for="email">Email *</label>
+                            <input id="email" type="email" class="validate" required>
+                            <label for="email" data-error="El email es invalido">Email *</label>
                         </div>
                     </div>
                     <div class="row">
@@ -234,5 +233,6 @@
     <!-- endinject -->
     <!-- inject:js -->
     <!-- endinject -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 </html>
