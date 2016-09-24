@@ -83,20 +83,33 @@ $(document).ready(function() {
         if(areValid){
             modal = $('#successSend');
             modal.openModal({
-                complete: cleanData,
-                ready: setTimeOutModal(modal)
+                ready: setTimeOutModal(modal,cleanData),
+                complete:function(){
+                    cleanData();
+                    clearTimeout(modal.idTimeOut);
+                }
             });
         }else{
             modal =$('#failSend');
             modal.openModal({
-                ready:setTimeOutModal(modal)
+                ready:setTimeOutModal(modal),
+                complete:function(){
+                    clearTimeout(modal.idTimeOut);
+                }
             });
         }
+
     }
 
-    function setTimeOutModal(context){
-        setTimeout(function(){
-            context.closeModal();
+    function setTimeOutModal(context,callback){
+        context.idTimeOut = setTimeout(function(){
+            context.closeModal({
+                complete:function(){
+                    if(callback){
+                        callback();
+                    }
+                }
+            });
         },3000);
     }
 
