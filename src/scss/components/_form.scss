@@ -26,15 +26,14 @@
 
 .error-message{
   color: transparent;
-  position: absolute;
+  position: relative;
   margin-left: 3rem;
-  top: 50px;
+  top: -18px;
   font-size: 0.8rem;
   opacity: 0;
 }
 
 textarea~.error-message {
-  position: relative;
   top:-24px;
 }
 
