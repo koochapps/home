@@ -97,7 +97,7 @@ $(document).ready(function() {
     function setTimeOutModal(context){
         setTimeout(function(){
             context.closeModal();
-        },2000);
+        },3000);
     }
 
     /**
