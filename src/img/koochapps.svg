@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="25 13 286 286" xmlns="http://www.w3.org/2000/svg" id="koochapps_logo">
+<svg viewBox="25 13 286 286" xmlns="http://www.w3.org/2000/svg">
     <title>Koochapps</title>
     <desc>Koochapps se enfoca en crear y mejorar aplicaciones webs y mobiles desde el diseño de la idea hasta la implementación de la solución</desc>
     <g id="bgCircle">
-        <ellipse cx="167.503" cy="156.57" rx="141.797" ry="141.797"/>
+        <ellipse cx="167.503" cy="156.57" rx="141.797" ry="141.797" fill="#FFF"/>
     </g>
     <g id="mainCircle">
-        <ellipse cx="167.503" cy="156.57" rx="138.489" ry="138.489"/>
+        <ellipse cx="167.503" cy="156.57" rx="138.489" ry="138.489" fill="#1b75b5"/>
     </g>
     <g id="letters">
-        <path d="M 61.744 84.535 L 85.043 84.535 L 139.935 226.476 L 116.408 226.476 L 61.744 84.535 Z"/>
-        <path d="M 201.162 84.349 L 224.461 84.349 L 279.353 226.29 L 255.826 226.29 L 201.162 84.349 Z"/>
-        <path d="M 198.62 100.816 L 129.631 176.299 L 136.124 193.546 L 238.187 205.518 L 230.274 185.227 L 154.183 176.907 L 206.33 120.295 L 198.62 100.816 Z"/>
+        <path d="M 61.744 84.535 L 85.043 84.535 L 139.935 226.476 L 116.408 226.476 L 61.744 84.535 Z" fill="#FFF" />
+        <path d="M 201.162 84.349 L 224.461 84.349 L 279.353 226.29 L 255.826 226.29 L 201.162 84.349 Z" fill="#FFF" />
+        <path d="M 198.62 100.816 L 129.631 176.299 L 136.124 193.546 L 238.187 205.518 L 230.274 185.227 L 154.183 176.907 L 206.33 120.295 L 198.62 100.816 Z" fill="#FFF" />
     </g>
 </svg>

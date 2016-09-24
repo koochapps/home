@@ -1,9 +1,22 @@
-.brand-logo{
-  svg {
+nav .brand-logo{
+  @include desktop{
+    padding-left: 20px;
+  }
+
+  @include large-screen{
+    padding-left: 20px;
+  }
+
+  /*svg {
     max-height: 50px;
     max-width: 50px;
     margin-top: 5px;
     margin-left: 25px;
+  }*/
+
+  img {
+    max-width: 30%;
+    margin-top: 5px;
   }
 
   strong {

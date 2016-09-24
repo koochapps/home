@@ -1,0 +1,40 @@
+.invalid-field {
+  [required]{
+    border-color: $error-color;
+    &:focus:not([readonly]) {
+      border-color: $error-color;
+      box-shadow: 0 1px 0 0 $error-color;
+      & + label{
+        color: $error-color;
+      }
+    }
+  }
+  .error-message{
+    color: $error-color;
+    opacity: 1;
+    @include transicion(opacity 0.2s ease-out, color 0.2s ease-out);
+  }
+  .material-icons, .material-icons.active{
+    color: $error-color;
+    opacity: 0.8;
+  }
+
+  label, label.active{
+    color: $error-color;
+  }
+}
+
+.error-message{
+  color: transparent;
+  position: absolute;
+  margin-left: 3rem;
+  top: 50px;
+  font-size: 0.8rem;
+  opacity: 0;
+}
+
+textarea~.error-message {
+  position: relative;
+  top:-24px;
+}
+

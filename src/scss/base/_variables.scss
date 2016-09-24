@@ -9,13 +9,20 @@ $grey : $black-lighten;
 
 $primary-color: #1b75b5;
 $secondary-color: $white;
-$success-color: #12BF70;
-$error-color: #FF5618;
+$success-color: darken(#12BF70,10%);
+$error-color: darken(#e53935,10%);
+
+/*
+  Screen
+*/
+$xx-large-screen: 1810px;
+$xx-large-screen-up: 1811px;
 
 /*
   Inputs
 */
 $input-border-color: $white-darken;
+$input-success-color:$white;
 
 /*
   Fonts
