@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="description" content="Koochapps se enfoca en crear y mejorar aplicaciones webs y mobiles desde el diseño de la idea hasta la implementación de la solución"/>
     <meta name="author" content="Gaston Kaltner"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="HandheldFriendly" content="true"/>
     <meta name="MobileOptimized" content="320"/>
     <link rel="icon" href="img/favicon.png" type="image/png">
@@ -21,9 +21,11 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">
-                    <svg viewBox="0 0 286 286" xmlns="http://www.w3.org/2000/svg" class="circle responsive-img">
+                    <!--svg viewBox="0 0 286 286" xmlns="http://www.w3.org/2000/svg" class="circle responsive-img">
                         <use xlink:href="#koochapps_logo"></use>
-                    </svg>
+                    </svg-->
+                    <img src="img/koochapps.svg" class="responsive-img koochapps-logo"
+                         alt="Koochapps se enfoca en crear y mejorar aplicaciones webs y mobiles desde el diseño de la idea hasta la implementación de la solución">
                     <strong>KOOCHAPPS</strong>
                 </a>
                 <a href="#" data-activates="mobile-screen" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -50,7 +52,9 @@
                 </div>
                 <div class="row">
                     <div class="col s12 parallax-container__logo">
-                        <svg viewBox="25 13 286 286" xmlns="http://www.w3.org/2000/svg" id="koochapps_logo">
+                        <img src="img/koochapps.svg" id="koochapps_logo" class="koochapps_logo"
+                             alt="Koochapps se enfoca en crear y mejorar aplicaciones webs y mobiles desde el diseño de la idea hasta la implementación de la solución">
+                        <!--svg viewBox="25 13 286 286" xmlns="http://www.w3.org/2000/svg" id="koochapps_logo">
                             <title>Koochapps</title>
                             <desc>Koochapps se enfoca en crear y mejorar aplicaciones webs y mobiles desde el diseño de la idea hasta la implementación de la solución</desc>
                             <g id="bgCircle">
@@ -64,7 +68,7 @@
                                 <path d="M 201.162 84.349 L 224.461 84.349 L 279.353 226.29 L 255.826 226.29 L 201.162 84.349 Z"></path>
                                 <path d="M 198.62 100.816 L 129.631 176.299 L 136.124 193.546 L 238.187 205.518 L 230.274 185.227 L 154.183 176.907 L 206.33 120.295 L 198.62 100.816 Z"></path>
                             </g>
-                        </svg>
+                        </svg-->
                         <h1 class="center name"><strong>KOOCHAPPS</strong></h1>
                         <h2 class="center sub_name">Software and Design</h2>
                     </div>
@@ -169,26 +173,29 @@
                     <h3 class="white-text contacto__title">Contactenos</h3>
                     <p class="white-text contacto__desc">Si estás necesitando nuestros servicios. ¡Queremos ayudarte! Por favor, completá el siguiente formulario y nos pondremos en contacto con vos a la brevedad.</p>
                 </div>
-                <form class="col s12 m7 offset-l1 l6">
+                <form class="col s12 m7 offset-l1 l6" novalidate autocomplete="off">
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 validar">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="nombre" type="text" required class="validate">
-                            <label for="nombre" data-error="Debe ingresar un nombre">Nombre *</label>
+                            <input id="nombre" type="text" required>
+                            <label for="nombre">Nombre *</label>
+                            <span class="error-message">Debe ingresar un nombre</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 validar">
                             <i class="material-icons prefix">email</i>
-                            <input id="email" type="email" class="validate" required>
-                            <label for="email" data-error="El email es invalido">Email *</label>
+                            <input id="email" type="email" required>
+                            <label for="email">Email *</label>
+                            <span class="error-message">El email es invalido</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 validar">
                             <i class="material-icons prefix">phone</i>
-                            <input id="phone" type="tel">
-                            <label for="phone">Telefono *</label>
+                            <input id="phone" type="tel" required>
+                            <label for="phone">Teléfono *</label>
+                            <span class="error-message">Debe ingresar un teléfono</span>
                         </div>
                     </div>
                     <div class="row">
@@ -199,10 +206,11 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 validar">
                             <i class="material-icons prefix">edit_mode</i>
-                            <textarea id="mensaje" type="text" class="materialize-textarea"></textarea>
+                            <textarea id="mensaje" type="text" class="materialize-textarea" required></textarea>
                             <label for="mensaje">Su mensaje *</label>
+                            <span class="error-message">Debe ingresar un mensaje</span>
                         </div>
                     </div>
                     <div class="row">
@@ -210,7 +218,7 @@
                             <div class="g-recaptcha" data-sitekey="6LeOJycTAAAAAAbkLyPOh5CKuGak5gxaRpKtCf8x"></div>
                         </div>
                     </div>
-                    <button class="btn waves-effect waves-light" type="button" name="enviar">Enviar
+                    <button class="btn waves-effect waves-light" type="button" name="enviar" id="enviar">Enviar
                         <i class="material-icons right">send</i>
                     </button>
                 </form>
@@ -229,10 +237,37 @@
             </div>
         </div>
     </footer>
+    <!-- Modal Structure -->
+    <div id="successSend" class="modal teal">
+        <div class="modal-content">
+            <h5 class="center-align"><strong>Su mensaje se envió con éxito</strong></h5>
+        </div>
+    </div>
+    <div id="failSend" class="modal red darken-1">
+        <div class="modal-content">
+            <h5 class="center-align"><strong>Su mensaje no se pudo enviar</strong></h5>
+            <p class="center-align">Hubo algún problema con el servicio, intentelo mas tarde.</p>
+        </div>
+    </div>
+    <!--div id="activity" class="modal ">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div-->
     <!-- bower:js -->
     <!-- endinject -->
     <!-- inject:js -->
     <!-- endinject -->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
 </body>
 </html>

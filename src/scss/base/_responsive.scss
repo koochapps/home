@@ -11,7 +11,19 @@
 }
 
 @mixin desktop{
-  @media screen and (min-width: $medium-screen-up){
+  @media screen and (min-width: $medium-screen-up) and (max-width: $large-screen){
+    @content;
+  }
+}
+
+@mixin large-screen{
+  @media screen and (min-width: $large-screen-up) and (max-width: $xx-large-screen){
+    @content;
+  }
+}
+
+@mixin xx-large-screen{
+  @media screen and (min-width: $xx-large-screen-up){
     @content;
   }
 }
