@@ -1,5 +1,17 @@
 .modal{
-  width: 28%;
+  width: 80%;
+
+  @include tablet{
+    width: 60%;
+  }
+
+  @include desktop{
+    width: 50%;
+  }
+
+  @include large-screen{
+    width: 40%;
+  }
 }
 .modal-content {
   color: $white;
