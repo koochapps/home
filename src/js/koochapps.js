@@ -69,8 +69,8 @@ $(document).ready(function() {
     document.getElementById('enviar').onclick = submitForm;
 
 
-    function submitForm(){
-        var areValid = true, element, modal;
+    function submitForm(){//TODO cambiar el estado de areValid para que empiece a funcionar el envio de mails
+        var areValid = false, element, modal;
         submit = true;
         for(var i = 0;i < inputsToValidate.length; i++) {
             element = inputsToValidate[ i ].querySelector( '[required]' );

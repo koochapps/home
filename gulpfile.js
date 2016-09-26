@@ -36,7 +36,7 @@ gulp.task('serve', ['build'], function() {
 /**
  * Build
 */
-gulp.task('build', gSync.sync(['clean:build','build:inject','build:fonts']));
+gulp.task('build', gSync.sync(['clean:build','build:inject','build:fonts','build:otherFiles']));
 
 gulp.task('build:sass', function() {
     return gulp.src(paths.src + "/scss/**/*.scss")
@@ -77,6 +77,11 @@ gulp.task('build:inject',gSync.sync([['build:html','build:sass','build:images'],
     return target.pipe($.inject(sources,{relative:true}))
         .pipe($.inject(bFiles, {name: 'bower',relative:true}))
         .pipe(gulp.dest(paths.build));
+});
+
+gulp.task('build:otherFiles', function(){
+   return gulp.src(paths.src + '/cv_koochapps.pdf')
+       .pipe(gulp.dest(paths.build));
 });
 
 /**
@@ -128,8 +133,13 @@ gulp.task('minify:html',['minify:js','minify:css'],function(){
 /**
  * Publish
  */
-gulp.task('publish',['minify','SEO'],function(){
+gulp.task('publish',['minify','SEO','otherFiles'],function(){
     return gulp.src(paths.dist + '/**/*')
+        .pipe(gulp.dest(paths.publish));
+});
+
+gulp.task('otherFiles',function(){
+    return gulp.src(paths.src + '/cv_koochapps.pdf')
         .pipe(gulp.dest(paths.publish));
 });
 

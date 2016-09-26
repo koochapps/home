@@ -6,5 +6,26 @@
         <image:image>
             <image:loc>http://koochapps.com/img/koochapps.svg</image:loc>
         </image:image>
+        <image:image>
+            <image:loc>http://koochapps.com/img/sergio-landucci.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://koochapps.com/img/gaston-kaltner.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://koochapps.com/img/fernando-farias.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://koochapps.com/img/agile.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://koochapps.com/img/technologies.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://koochapps.com/img/logo-set.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>http://koochapps.com/img/home-back.jpg</image:loc>
+        </image:image>
     </url>
 </urlset>
