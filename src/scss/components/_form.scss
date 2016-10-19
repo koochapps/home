@@ -37,3 +37,23 @@ textarea~.error-message {
   top:-24px;
 }
 
+.g-recaptcha{
+  iframe {
+    border-radius: 4px;
+    border: 1px solid transparent;
+  }
+  &.invalid-field{
+    iframe {
+      border-color: $error-color;
+    }
+    ~ span.error-message {
+      color: $error-color;
+      opacity: 1;
+      @include transicion(opacity 0.2s ease-out, color 0.2s ease-out);
+    }
+  }
+  ~ span.error-message {
+    position: static;
+    top:0;
+  }
+}

@@ -69,8 +69,8 @@ $(document).ready(function() {
     document.getElementById('enviar').onclick = submitForm;
 
 
-    function submitForm(){//TODO cambiar el estado de areValid para que empiece a funcionar el envio de mails
-        var areValid = false, element, modal;
+    function submitForm(){
+        var areValid = true, element;
         submit = true;
         for(var i = 0;i < inputsToValidate.length; i++) {
             element = inputsToValidate[ i ].querySelector( '[required]' );
@@ -79,26 +79,49 @@ $(document).ready(function() {
                 areValid= false;
             }
         }
+        setValidatyCaptcha(validCaptcha);
 
-        if(areValid){
-            modal = $('#successSend');
-            modal.openModal({
-                ready: setTimeOutModal(modal,cleanData),
-                complete:function(){
-                    cleanData();
-                    clearTimeout(modal.idTimeOut);
-                }
-            });
+        if(areValid && validCaptcha){
+            sendMessage();
         }else{
-            modal =$('#failSend');
-            modal.openModal({
-                ready:setTimeOutModal(modal),
-                complete:function(){
-                    clearTimeout(modal.idTimeOut);
-                }
-            });
+            failModal({status:400}); //TODO check status
         }
 
+    }
+
+    function sendMessage(){
+        var fields = document.querySelectorAll( '.input-field [type]' );
+        var data = {};
+        for(var i=0; i < fields.length; i++){
+            data[ fields[ i ].name ] = fields[ i ].value;
+        }
+        data['g-recaptcha-response'] = grecaptcha.getResponse();
+        $.post(env.endPoint, data ).done(succesModal).fail(failModal);
+    }
+
+    function succesModal() {
+        var modal = $('#successSend');
+        showModal(modal,cleanData);
+    }
+
+    function failModal(errorCode) {
+        var messageError = $('[data-error='+ errorCode.status +']' ); //TODO check status
+        messageError.removeClass('hide');
+        messageError.addClass('show');
+        var modal = $('#failSend');
+        showModal(modal,resetErrors);
+    }
+
+    function showModal(modal,callback){
+        modal.openModal({
+            ready: setTimeOutModal(modal,callback),
+            complete:function(){
+                if(callback){
+                    callback();
+                }
+                clearTimeout(modal.idTimeOut);
+            }
+        });
     }
 
     function setTimeOutModal(context,callback){
@@ -122,8 +145,44 @@ $(document).ready(function() {
         for(var i=0; i < fields.length; i++){
             fields[i].value = "";
         }
+        resetCaptcha();
     }
 
+    function resetErrors(){
+        var errors = $('[data-error]' ),error;
+        for(var i = 0; i < errors.length; i++){
+            error = $(errors[i]);
+            if(error.hasClass('show')){
+                error.removeClass('show');
+                error.addClass('hide');
+            }
+        }
+    }
 });
 
+var validCaptcha = false;
 
+function setValidatyCaptcha(valid){
+    validCaptcha = valid === undefined ? true : valid;
+    if(validCaptcha){
+        $('.g-recaptcha').removeClass('invalid-field');
+    }else{
+        $('.g-recaptcha').addClass('invalid-field');
+    }
+}
+
+function resetCaptcha(){
+    grecaptcha.reset();
+    validCaptcha = false;
+}
+
+function showCaptcha(){
+    grecaptcha.render('krecaptcha',{
+        sitekey: env.sitekey,
+        callback: setValidatyCaptcha
+    });
+}
+/**
+ * production key 6LeOJycTAAAAAAbkLyPOh5CKuGak5gxaRpKtCf8x
+ * developer key 6LejUwkUAAAAAKBwrb7rDexM9ojfYimhn2OdqE6V
+ */

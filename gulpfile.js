@@ -6,9 +6,12 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(/*options parameter*/),
     browserSync = require('browser-sync'),
     del = require('del'),
-    bowerFiles = require('main-bower-files');
+    bowerFiles = require('main-bower-files' ),
+    nMock = require('n-mock' ),
+    config = require('./koochapps.json' );
 
 var gSync = $.sync(gulp);
+var env = null;
 
 var paths = {
     src:'./src',
@@ -23,7 +26,8 @@ var paths = {
 gulp.task('serve', ['build'], function() {
 
     browserSync.init({
-        server: paths.build
+        server: paths.build,
+        middleware: [ nMock(__dirname + '/mocks') ]
     });
 
     gulp.watch(paths.src + "/scss/**/*.scss", ['build:sass',browserSync.reload]);
@@ -47,7 +51,9 @@ gulp.task('build:sass', function() {
 });
 
 gulp.task('build:js',function(){
+    env = config.dev;
     return gulp.src(paths.src + "/js/**/*.js")
+        .pipe( $.insert.prepend('var env = ' + JSON.stringify(env) + ';') )
         .pipe(gulp.dest(paths.build + "/js"));
 });
 
@@ -102,10 +108,12 @@ gulp.task('minify:img',['move:img'],function(){
 });
 
 gulp.task('minify:js',function(){
+    env = config.prod;
     return gulp.src(bowerFiles())
         .pipe($.addSrc.append(paths.src + '/js/**/*.js'))
+        .pipe( $.insert.prepend('var env = ' + JSON.stringify(env) + ';') )
         .pipe($.concat('koochapps.js'))
-        .pipe($.minify())
+        //.pipe($.minify())
         .pipe(gulp.dest(paths.dist + '/js'));
 });
 

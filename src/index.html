@@ -178,7 +178,7 @@
                     <div class="row">
                         <div class="input-field col s12 validar">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="nombre" type="text" required>
+                            <input name="name" id="nombre" type="text" required>
                             <label for="nombre">Nombre *</label>
                             <span class="error-message">Debe ingresar un nombre</span>
                         </div>
@@ -186,7 +186,7 @@
                     <div class="row">
                         <div class="input-field col s12 validar">
                             <i class="material-icons prefix">email</i>
-                            <input id="email" type="email" required>
+                            <input name="email" id="email" type="email" required>
                             <label for="email">Email *</label>
                             <span class="error-message">El email es invalido</span>
                         </div>
@@ -194,7 +194,7 @@
                     <div class="row">
                         <div class="input-field col s12 validar">
                             <i class="material-icons prefix">phone</i>
-                            <input id="phone" type="tel" required>
+                            <input name="phone" id="phone" type="tel" required>
                             <label for="phone">Teléfono *</label>
                             <span class="error-message">Debe ingresar un teléfono</span>
                         </div>
@@ -202,21 +202,23 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">work</i>
-                            <input id="compania" type="text">
+                            <input name="company" id="compania" type="text">
                             <label for="compania">Compañía</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 validar">
                             <i class="material-icons prefix">edit_mode</i>
-                            <textarea id="mensaje" type="text" class="materialize-textarea" required></textarea>
+                            <textarea name="message" id="mensaje" type="text" class="materialize-textarea" required></textarea>
                             <label for="mensaje">Su mensaje *</label>
                             <span class="error-message">Debe ingresar un mensaje</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <div class="g-recaptcha" data-sitekey="6LeOJycTAAAAAAbkLyPOh5CKuGak5gxaRpKtCf8x"></div>
+                            <!--div class="g-recaptcha" data-sitekey="6LeOJycTAAAAAAbkLyPOh5CKuGak5gxaRpKtCf8x"></div-->
+                            <div id="krecaptcha" class="g-recaptcha"></div><!-- Pruebas locales -->
+                            <span class="error-message">Verifique que usted no es un robot</span>
                         </div>
                     </div>
                     <button class="btn waves-effect waves-light" type="button" name="enviar" id="enviar">Enviar
@@ -247,7 +249,9 @@
     <div id="failSend" class="modal red darken-1">
         <div class="modal-content">
             <h5 class="center-align"><strong>Su mensaje no se pudo enviar</strong></h5>
-            <p class="center-align">Hubo algún problema con el servicio, intentelo mas tarde.</p>
+            <p class="center-align hide" data-error="400">Debe completar los campos requeridos</p>
+            <p class="center-align hide" data-error="404">Hubo algún problema con el servicio, intentelo mas tarde.</p>
+            <p class="center-align hide" data-error="500">Hubo algún problema con el servicio, intentelo mas tarde.</p>
         </div>
     </div>
     <!--div id="activity" class="modal ">
@@ -269,6 +273,15 @@
     <!-- endinject -->
     <!-- inject:js -->
     <!-- endinject -->
-    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=showCaptcha&render=explicit" async defer></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-84755008-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+{
+  "dev":{
+    "endPoint": "/contacts",
+    "sitekey": "6LejUwkUAAAAAKBwrb7rDexM9ojfYimhn2OdqE6V"
+  },
+  "prod":{
+    "endPoint": "https://wpodyly6r7.execute-api.us-east-1.amazonaws.com/prod/contacts",
+    "sitekey": "6LeOJycTAAAAAAbkLyPOh5CKuGak5gxaRpKtCf8x"
+  }
+}
