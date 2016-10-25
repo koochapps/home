@@ -16,6 +16,7 @@
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "^3.0.2",
     "gulp-inject": "^4.1.0",
+    "gulp-insert": "^0.5.0",
     "gulp-load-plugins": "^1.2.4",
     "gulp-minify": "0.0.12",
     "gulp-rename": "^1.2.2",
@@ -24,7 +25,8 @@
     "gulp-sync": "^0.1.4",
     "gulp-util": "^3.0.7",
     "lazypipe": "^1.0.1",
-    "main-bower-files": "^2.13.1"
+    "main-bower-files": "^2.13.1",
+    "n-mock": "^1.2.4"
   },
   "keywords": [
     "koochapps"
