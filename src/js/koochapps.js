@@ -82,11 +82,11 @@ $(document).ready(function() {
         setValidatyCaptcha(validCaptcha);
 
         if(areValid && validCaptcha){
+            showActivity();
             sendMessage();
         }else{
             failModal({status:400}); //TODO check status
         }
-
     }
 
     function sendMessage(){
@@ -104,6 +104,7 @@ $(document).ready(function() {
         sendHint('Success');
         var modal = $('#successSend');
         showModal(modal,cleanData);
+        hideActivity();
     }
 
     function failModal(errorCode) {
@@ -113,16 +114,19 @@ $(document).ready(function() {
         messageError.addClass('show');
         var modal = $('#failSend');
         showModal(modal,resetErrors);
+        hideActivity();
     }
 
-    function showModal(modal,callback){
+    function showModal(modal,callback,withoutTimeOut){
         modal.openModal({
-            ready: setTimeOutModal(modal,callback),
+            ready: !withoutTimeOut ? setTimeOutModal(modal,callback) : function(){},
             complete:function(){
                 if(callback){
                     callback();
                 }
-                clearTimeout(modal.idTimeOut);
+                if(!withoutTimeOut) {
+                    clearTimeout( modal.idTimeOut );
+                }
             }
         });
     }
@@ -137,6 +141,15 @@ $(document).ready(function() {
                 }
             });
         },3000);
+    }
+
+    function showActivity(){
+        var modal = $('#activity');
+        showModal(modal,null,true);
+    }
+
+    function hideActivity(){
+        $('#activity').closeModal();
     }
 
     /**
@@ -185,11 +198,6 @@ function showCaptcha(){
         callback: setValidatyCaptcha
     });
 }
-/**
- * production key 6LeOJycTAAAAAAbkLyPOh5CKuGak5gxaRpKtCf8x
- * developer key 6LejUwkUAAAAAKBwrb7rDexM9ojfYimhn2OdqE6V
- */
-
 
 /**
  * Analytics
