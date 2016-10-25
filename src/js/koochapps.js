@@ -90,6 +90,7 @@ $(document).ready(function() {
     }
 
     function sendMessage(){
+        sendHint('Email');
         var fields = document.querySelectorAll( '.input-field [type]' );
         var data = {};
         for(var i=0; i < fields.length; i++){
@@ -100,12 +101,14 @@ $(document).ready(function() {
     }
 
     function succesModal() {
+        sendHint('Success');
         var modal = $('#successSend');
         showModal(modal,cleanData);
     }
 
     function failModal(errorCode) {
         var messageError = $('[data-error='+ errorCode.status +']' ); //TODO check status
+        sendHint('Error',messageError.html());
         messageError.removeClass('hide');
         messageError.addClass('show');
         var modal = $('#failSend');
@@ -186,3 +189,33 @@ function showCaptcha(){
  * production key 6LeOJycTAAAAAAbkLyPOh5CKuGak5gxaRpKtCf8x
  * developer key 6LejUwkUAAAAAKBwrb7rDexM9ojfYimhn2OdqE6V
  */
+
+
+/**
+ * Analytics
+ */
+function sendHint(type, descripcion){
+    switch (type){
+        case 'PDF':
+            ga('send', 'event', 'link', 'click', 'http://koochapps.com/cv_koochapps.pdf');
+            break;
+        case 'Facebook':
+            ga('send', 'event', 'link', 'click', 'https://www.facebook.com/koochapps');
+            break;
+        case 'Email':
+            ga('send', 'event', 'button', 'click', 'send email');
+            break;
+        case 'Error':
+            ga('send', 'event', 'error', 'response', descripcion);
+            break;
+        case 'Success':
+            ga('send', 'event', 'success', 'response');
+            break;
+        case 'Integrante':
+            ga('send', 'event', 'link', 'click', descripcion);
+            break;
+        case 'NavBar':
+            ga('send', 'event', 'link', 'click', descripcion);
+            break;
+    }
+}

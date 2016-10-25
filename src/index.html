@@ -30,16 +30,16 @@
                 </a>
                 <a href="#" data-activates="mobile-screen" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#metodologia">¿Cómo trabajamos?</a></li>
-                    <li><a href="#tecnologias">Tecnologías</a></li>
-                    <li><a href="#conozcanos">¿Quienes somos?</a></li>
-                    <li><a href="#contacto">Contactenos</a></li>
+                    <li><a href="#metodologia" onclick="sendHint('NavBar','¿Cómo trabajamos?')">¿Cómo trabajamos?</a></li>
+                    <li><a href="#tecnologias" onclick="sendHint('NavBar','Tecnologías')">Tecnologías</a></li>
+                    <li><a href="#conozcanos" onclick="sendHint('NavBar','¿Quienes somos?')">¿Quienes somos?</a></li>
+                    <li><a href="#contacto" onclick="sendHint('NavBar','Contactenos')">Contactenos</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-screen">
-                    <li><a href="#metodologia">¿Cómo trabajamos?</a></li>
-                    <li><a href="#tecnologias">Tecnologías</a></li>
-                    <li><a href="#conozcanos">¿Quienes somos?</a></li>
-                    <li><a href="#contacto">Contactenos</a></li>
+                    <li><a href="#metodologia" onclick="sendHint('NavBar','¿Cómo trabajamos?')">¿Cómo trabajamos?</a></li>
+                    <li><a href="#tecnologias" onclick="sendHint('NavBar','Tecnologías')">Tecnologías</a></li>
+                    <li><a href="#conozcanos" onclick="sendHint('NavBar','¿Quienes somos?')">¿Quienes somos?</a></li>
+                    <li><a href="#contacto" onclick="sendHint('NavBar','Contactenos')">Contactenos</a></li>
                 </ul>
             </div>
         </nav>
@@ -117,7 +117,7 @@
                             A la hora de desarrollar nuestros proyectos, creemos en la importancia del acompañamiento y un buen asesoramiento para lograr llevar a cabo los objetivos actuales y futuros de nuestros clientes.
                             Busca un crecimiento constante en nuestros desarrollos, es por ello que tratamos de permanecer siempre en la vanguardia del la tecnología.
                         </p>
-                        <a href="/cv_koochapps.pdf" target="_blank">[ ver más ]</a>
+                        <a href="/cv_koochapps.pdf" target="_blank" onclick="sendHint('PDF')">[ ver más ]</a>
                     </div>
                 </div>
             </div>
@@ -139,14 +139,14 @@
                         <div class="col s12 l8 offset-l2 conozcanos__integrantes center">
                             <div class="row">
                                 <div class="col s12 m4">
-                                    <a href="https://ar.linkedin.com/in/slanducci" target="_blank">
+                                    <a href="https://ar.linkedin.com/in/slanducci" target="_blank" onclick="sendHint('Integrante','Sergio Landucci')">
                                         <img src="img/sergio-landucci.png" class="responsive-img circle" alt="Sergio Landucci Asesor Multimedia & Apps">
                                         <h4>Sergio Landucci</h4>
                                         <p>Asesor Multimedia & Apps</p>
                                     </a>
                                 </div>
                                 <div class="col s12 m4">
-                                    <a href="https://ar.linkedin.com/in/gkaltner" target="_blank">
+                                    <a href="https://ar.linkedin.com/in/gkaltner" target="_blank" onclick="sendHint('Integrante','Gastón Kaltner')">
                                         <img src="img/gaston-kaltner.jpg" class="responsive-img circle"
                                              alt="Gastón Kaltner Analista de Sistemas">
                                         <h4>Gastón Kaltner</h4>
@@ -154,7 +154,7 @@
                                     </a>
                                 </div>
                                 <div class="col s12 m4">
-                                    <a href="https://ar.linkedin.com/in/yiown" target="_blank">
+                                    <a href="https://ar.linkedin.com/in/yiown" target="_blank" onclick="sendHint('Integrante','Fernando Farias')">
                                         <img src="img/fernando-farias.jpg" class="responsive-img circle" alt="Fernando Farias Arquitecto de software">
                                         <h4>Fernando Farias</h4>
                                         <p>Arquitecto de software</p>
@@ -234,7 +234,7 @@
                         <span class="copyright__text">© 2016 Copyright Koochapps. Todos los derechos reservados</span>
                     </div>
                     <div class="col s6 copyright__social">
-                        <a href="https://www.facebook.com/koochapps" target="_blank"><i class="fa fa-facebook-official fa-2x right" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/koochapps" target="_blank" onclick="sendHint('Facebook')"><i class="fa fa-facebook-official fa-2x right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -275,13 +275,10 @@
     <!-- endinject -->
     <script src="https://www.google.com/recaptcha/api.js?onload=showCaptcha&render=explicit" async defer></script>
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
         ga('create', 'UA-84755008-1', 'auto');
         ga('send', 'pageview');
     </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
 </body>
 </html>
