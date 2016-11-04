@@ -220,7 +220,7 @@ function showCaptcha(){
 function sendHint(type, descripcion){
     switch (type){
         case 'PDF':
-            ga('send', 'event', 'link', 'click', 'http://koochapps.com/cv_koochapps.pdf');
+            ga('send', 'event', 'link', 'click', 'http://koochapps.com/cv-koochapps.pdf');
             break;
         case 'Facebook':
             ga('send', 'event', 'link', 'click', 'https://www.facebook.com/koochapps');
