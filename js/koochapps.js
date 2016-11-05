@@ -16757,7 +16757,13 @@ $(document).ready(function() {
             data[ fields[ i ].name ] = fields[ i ].value;
         }
         data['g-recaptcha-response'] = grecaptcha.getResponse();
-        $.post(env.endPoint, data ).done(succesModal).fail(failModal);
+        $.ajax({
+            type: 'POST',
+            url: env.endPoint,
+            crossDomain: true,
+            data: data,
+            dataType: "json"
+        }).done(succesModal).fail(failModal);
     }
 
     function succesModal() {
@@ -16865,7 +16871,7 @@ function showCaptcha(){
 function sendHint(type, descripcion){
     switch (type){
         case 'PDF':
-            ga('send', 'event', 'link', 'click', 'http://koochapps.com/cv_koochapps.pdf');
+            ga('send', 'event', 'link', 'click', 'http://koochapps.com/cv-koochapps.pdf');
             break;
         case 'Facebook':
             ga('send', 'event', 'link', 'click', 'https://www.facebook.com/koochapps');
