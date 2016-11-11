@@ -98,12 +98,13 @@ $(document).ready(function() {
         }
         data['g-recaptcha-response'] = grecaptcha.getResponse();
         $.ajax({
-            type: 'POST',
-            url: env.endPoint,
-            crossDomain: true,
-            data: data,
-            dataType: "json"
-        }).done(succesModal).fail(failModal);
+          method: 'POST',
+          url: env.endPoint,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          crossDomain:true,
+          data: JSON.stringify(data) }).done(succesModal).fail(failModal);
     }
 
     function succesModal() {

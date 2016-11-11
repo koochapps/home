@@ -11,7 +11,7 @@
   ],
   "homepage": "https://github.com/koochapps/home",
   "dependencies": {
-    "Materialize": "materialize#^0.97.7",
+    "Materialize": "materialize#0.97.7",
     "jquery": "2.1.1",
     "svg-morpheus": "^0.3.2",
     "font-awesome": "^4.6.3"
