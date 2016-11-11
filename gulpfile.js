@@ -113,7 +113,7 @@ gulp.task('minify:js',function(){
         .pipe($.addSrc.append(paths.src + '/js/**/*.js'))
         .pipe( $.insert.prepend('var env = ' + JSON.stringify(env) + ';') )
         .pipe($.concat('koochapps.js'))
-        .pipe($.minify())
+        //.pipe($.minify())
         .pipe(gulp.dest(paths.dist + '/js'));
 });
 
