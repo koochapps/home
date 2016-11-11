@@ -97,7 +97,14 @@ $(document).ready(function() {
             data[ fields[ i ].name ] = fields[ i ].value;
         }
         data['g-recaptcha-response'] = grecaptcha.getResponse();
-        $.post(env.endPoint, data ).done(succesModal).fail(failModal);
+        $.ajax({
+          method: 'POST',
+          url: env.endPoint,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          crossDomain:true,
+          data: JSON.stringify(data) }).done(succesModal).fail(failModal);
     }
 
     function succesModal() {

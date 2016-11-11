@@ -12,6 +12,10 @@
   @include large-screen{
     width: 40%;
   }
+
+  @include xx-large-screen{
+    width: 40%;
+  }
 }
 .modal-content {
   color: $white;
