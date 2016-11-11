@@ -85,7 +85,7 @@ $(document).ready(function() {
             showActivity();
             sendMessage();
         }else{
-            failModal({status:400}); //TODO check status
+            failModal(400);
         }
     }
 
@@ -104,7 +104,14 @@ $(document).ready(function() {
             'Content-Type': 'application/json'
           },
           crossDomain:true,
-          data: JSON.stringify(data) }).done(succesModal).fail(failModal);
+          data: JSON.stringify(data) })
+          .complete(function(response) {
+            if(response.status == 200){
+              succesModal()
+            }else{
+              failModal(response.status)
+            }
+          });
     }
 
     function succesModal() {
@@ -115,7 +122,7 @@ $(document).ready(function() {
     }
 
     function failModal(errorCode) {
-        var messageError = $('[data-error='+ errorCode.status +']' ); //TODO check status
+        var messageError = $('[data-error='+ errorCode +']' );
         sendHint('Error',messageError.html());
         messageError.removeClass('hide');
         messageError.addClass('show');
@@ -124,8 +131,9 @@ $(document).ready(function() {
         hideActivity();
     }
 
-    function showModal(modal,callback,withoutTimeOut){
+    function showModal(modal,callback,withoutTimeOut,notDismissible){
         modal.openModal({
+            dismissible: !notDismissible,
             ready: !withoutTimeOut ? setTimeOutModal(modal,callback) : function(){},
             complete:function(){
                 if(callback){
@@ -152,7 +160,7 @@ $(document).ready(function() {
 
     function showActivity(){
         var modal = $('#activity');
-        showModal(modal,null,true);
+        showModal(modal,null,true,true);
     }
 
     function hideActivity(){
