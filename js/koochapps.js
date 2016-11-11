@@ -16764,7 +16764,10 @@ $(document).ready(function() {
             'Content-Type': 'application/json'
           },
           crossDomain:true,
-          data: JSON.stringify(data) }).done(succesModal).fail(failModal);
+          data: JSON.stringify(data) ,
+          success: succesModal,
+          error: failModal
+        });
     }
 
     function succesModal() {
