@@ -118,7 +118,7 @@ $(document).ready(function() {
     }
 
     function showModal(modal,callback,withoutTimeOut){
-        modal.({
+        modal.openModal({
             ready: !withoutTimeOut ? setTimeOutModal(modal,callback) : function(){},
             complete:function(){
                 if(callback){
