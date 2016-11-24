@@ -86,7 +86,7 @@ gulp.task('build:inject',gSync.sync([['build:html','build:sass','build:images'],
 });
 
 gulp.task('build:otherFiles', function(){
-   return gulp.src(paths.src + '/cv_koochapps.pdf')
+   return gulp.src(paths.src + '/cv-koochapps.pdf')
        .pipe(gulp.dest(paths.build));
 });
 
@@ -113,7 +113,7 @@ gulp.task('minify:js',function(){
         .pipe($.addSrc.append(paths.src + '/js/**/*.js'))
         .pipe( $.insert.prepend('var env = ' + JSON.stringify(env) + ';') )
         .pipe($.concat('koochapps.js'))
-        //.pipe($.minify())
+        .pipe($.minify())
         .pipe(gulp.dest(paths.dist + '/js'));
 });
 
@@ -147,7 +147,7 @@ gulp.task('publish',['minify','SEO','otherFiles'],function(){
 });
 
 gulp.task('otherFiles',function(){
-    return gulp.src(paths.src + '/cv_koochapps.pdf')
+    return gulp.src(paths.src + '/cv-koochapps.pdf')
         .pipe(gulp.dest(paths.publish));
 });
 
