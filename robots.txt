@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /*.json$
+Disallow: /.gitignore
+Disallow: /gulpfile.js
+Disallow: /src
+Disallow: /mocks
