@@ -225,6 +225,9 @@ function sendHint(type, descripcion){
         case 'Facebook':
             ga('send', 'event', 'link', 'click', 'https://www.facebook.com/koochapps');
             break;
+        case 'LinkedIn':
+            ga('send', 'event', 'link', 'click', 'https://www.linkedin.com/company/koochapps');
+            break;
         case 'Email':
             ga('send', 'event', 'button', 'click', 'send email');
             break;
