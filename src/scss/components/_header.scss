@@ -7,6 +7,10 @@ nav .brand-logo{
     padding-left: 20px;
   }
 
+  @include xx-large-screen{
+    padding-left: 20px;
+  }
+
   img {
     max-width: 30%;
     margin-top: 5px;
