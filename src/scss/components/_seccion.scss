@@ -2,6 +2,10 @@
   .parallax-container{
     height: 600px;
 
+    @include tiny-phone{
+      height: 650px;
+    }
+
     @include phone{
       height: 650px;
     }
@@ -16,6 +20,11 @@
     &--title{
       color: darken($primary-color, 5%);
 
+      @include tiny-phone{
+        font-size: $font-phone-h2;
+        text-align: center;
+      }
+
       @include phone{
         font-size: $font-phone-h2;
         text-align: center;
@@ -26,10 +35,16 @@
       font-weight: $roboto-light;
       line-height: 2;
 
+      @include tiny-phone{
+        font-size: $font-size-desc-phone;
+        text-align: center;
+      }
+
       @include phone{
         font-size: $font-size-desc-phone;
         text-align: center;
       }
+
       @include tablet{
         font-size: $font-size-desc-tablet;
       }
@@ -45,8 +60,18 @@
       margin: auto;
     }
 
+    @include tiny-phone{
+      display: block;
+      margin: auto;
+    }
+
     &--right{
       float:right;
+
+      @include tiny-phone{
+        float:none;
+      }
+
       @include phone{
         float:none;
       }
@@ -54,9 +79,19 @@
 
     &--left{
       float:left;
+
+      @include tiny-phone{
+        float:none;
+      }
+
       @include phone{
         float:none;
       }
+    }
+
+    @include tiny-phone{
+      width: 150px;
+      margin-top: 0px;
     }
 
     @include phone{
@@ -68,6 +103,10 @@
   .row {
     margin-top: 130px;
 
+    @include tiny-phone{
+      margin-top: 80px;
+    }
+
     @include phone{
       margin-top: 80px;
     }
@@ -78,6 +117,11 @@
   .seccion__img{
     height: 250px;
     width: 250px;
+
+    @include tiny-phone{
+      height: 150px;
+      width: 150px;
+    }
 
     @include phone{
       height: 150px;
@@ -98,9 +142,14 @@
     font-weight: $roboto-light;
     line-height: 2;
 
+    @include tiny-phone{
+      font-size: $font-size-desc-phone;
+    }
+
     @include phone{
       font-size: $font-size-desc-phone;
     }
+
     @include tablet{
       font-size: $font-size-desc-tablet;
     }
@@ -124,6 +173,12 @@
 }
 
 .conozcanos{
+  @include tiny-phone {
+    .parallax-container {
+      height: auto;
+    }
+  }
+
   @include phone {
     .parallax-container {
       height: auto;
@@ -141,6 +196,12 @@
 
     .row{
       margin-top: 20px;
+      @include tiny-phone {
+        .col {
+          margin-top: 20px;
+        }
+      }
+
       @include phone {
         .col {
           margin-top: 20px;

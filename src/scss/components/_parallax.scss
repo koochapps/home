@@ -1,6 +1,10 @@
 .parallax-container{
   height: 700px;
 
+  @include tiny-phone{
+    height: 650px;
+  }
+
   @include phone{
     height: 650px;
   }
@@ -21,11 +25,19 @@
       @include phone{
         max-width: 200px;
       }
+
+      @include tiny-phone{
+        max-width: 200px;
+      }
     }
 
 
     .name {
       margin-bottom: 0;
+      @include tiny-phone{
+        font-size: $font-phone-h1;
+      }
+
       @include phone{
         font-size: $font-phone-h1;
       }
@@ -40,6 +52,11 @@
         letter-spacing: $space-letter-sub_name-tablet;
       }
 
+      @include tiny-phone{
+        letter-spacing: $space-letter-sub_name-phone;
+        text-indent: $text-indent-sub_name-phone;
+      }
+
       @include phone{
         letter-spacing: $space-letter-sub_name-phone;
         text-indent: $text-indent-sub_name-phone;
@@ -52,6 +69,11 @@
 
     .lema {
       font-size: $font-size-lema;
+
+      @include tiny-phone{
+        font-size: $font-size-lema-phone;
+      }
+
       @include phone{
         font-size: $font-size-lema-phone;
       }
