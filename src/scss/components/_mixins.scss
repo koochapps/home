@@ -4,3 +4,10 @@
   -moz-transition: $params;
   -o-transition: $params;
 }
+
+@mixin transform( $scale, $origin...){
+  transform:scale($scale);
+  -webkit-transform:scale($scale);
+  transform-origin:$origin;
+  -webkit-transform-origin:$origin;
+}
